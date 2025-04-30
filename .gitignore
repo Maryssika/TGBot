@@ -1,11 +1,23 @@
-# Игнорируем все по умолчанию
-/*
-
-# Оставляем только исходный код, pom-файл и Readme
-!src/
-!README.md
-!pom.xml
-
 # Конфиденциальные данные
-config.env
+.env
 *.env
+.env.local
+.env.*.local
+
+# Файлы с ключами и паролями
+secrets.*
+*.key
+*.pem
+*.cert
+*.pub
+*.priv
+
+# Файлы конфигурации с чувствительными данными
+config.json
+credentials.*
+settings.ini
+
+# Исключаем папки с чувствительными данными
+/secrets/
+/keys/
+/credentials/
