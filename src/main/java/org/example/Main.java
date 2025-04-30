@@ -8,7 +8,7 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 public class Main {
     public static void main(String[] args) {
         try {
-            // Загружаем переменные окружения
+
             Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
 
             String botToken = dotenv.get("TELEGRAM_BOT_TOKEN");
