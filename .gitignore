@@ -1,23 +1,11 @@
-# Конфиденциальные данные
-.env
-*.env
-.env.local
-.env.*.local
+# IntelliJ IDEA files
+.idea/
+*.iml
 
-# Файлы с ключами и паролями
-secrets.*
-*.key
-*.pem
-*.cert
-*.pub
-*.priv
+# Maven target directory
+target/
 
-# Файлы конфигурации с чувствительными данными
-config.json
-credentials.*
-settings.ini
-
-# Исключаем папки с чувствительными данными
-/secrets/
-/keys/
-/credentials/
+# Other IDE files
+.vscode/
+*.swp
+*.swo
