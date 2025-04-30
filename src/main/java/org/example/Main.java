@@ -1,5 +1,6 @@
 package org.example;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
@@ -7,10 +8,18 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 public class Main {
     public static void main(String[] args) {
         try {
-            TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
+            // Загружаем переменные окружения
+            Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
 
-            // Замените "YOUR_BOT_TOKEN" и "YOUR_BOT_NAME" на реальные значения
-            Bot bot = new Bot("7607166310:AAHqFOb3UohwNCEnKlAw_4RpAVITcv86jno", "pediatric_scales_bot");
+            String botToken = dotenv.get("TELEGRAM_BOT_TOKEN");
+            String botName = dotenv.get("TELEGRAM_BOT_NAME");
+
+            if (botToken == null || botName == null) {
+                throw new IllegalStateException("Не найдены переменные окружения для бота");
+            }
+
+            TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
+            Bot bot = new Bot(botToken, botName);
 
             botsApi.registerBot(bot);
             System.out.println("Бот успешно запущен!");

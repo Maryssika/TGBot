@@ -1,11 +1,11 @@
-# IntelliJ IDEA files
-.idea/
-*.iml
+# Игнорируем все по умолчанию
+/*
 
-# Maven target directory
-target/
+# Оставляем только исходный код, pom-файл и Readme
+!src/
+!README.md
+!pom.xml
 
-# Other IDE files
-.vscode/
-*.swp
-*.swo
+# Конфиденциальные данные
+config.env
+*.env
